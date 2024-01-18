@@ -33,24 +33,31 @@ return {
 				capabilities = capabilities,
 			})
 
-      -- Keybindings
+			-- Keybindings
 			local wk = require("which-key")
 			wk.register({
 				l = {
 					name = "LSP",
 					K = { vim.lsp.buf.hover, "Hover Symbol" },
 					F = { vim.lsp.buf.format, "Format Document" },
-					a = { vim.lsp.buf.code_actions, "Code Actions" },
+					a = { vim.lsp.buf.code_action, "Code Actions" },
 					["<F2>"] = { vim.lsp.buf.rename, "Rename" },
+					A = { vim.lsp.buf.add_workspace_folder, "Add Workspace Folder" },
+					R = { vim.lsp.buf.remove_workspace_folder, "Remove Workspace Folder" },
+					L = {
+						function()
+							print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+						end,
+						"List Workspace Folders",
+					},
 				},
-				{
-					mode = "n",
-					prefix = "<leader>",
-					buffer = nil,
-					silent = true,
-					noremap = true,
-					nowait = false,
-				},
+			}, {
+				mode = "n",
+				prefix = "<leader>",
+				buffer = nil,
+				silent = true,
+				noremap = true,
+				nowait = false,
 			})
 		end,
 	},

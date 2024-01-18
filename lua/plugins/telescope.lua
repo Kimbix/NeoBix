@@ -32,7 +32,7 @@ return {
 
           -- LSP
           d = { builtin.lsp_definitions, "LSP Definitions" },
-          t = { builtin.lsp_definitions, "LSP Type Definitions" },
+          t = { builtin.lsp_type_definitions, "LSP Type Definitions" },
           s = { builtin.lsp_document_symbols, "LSP Document Symbols" },
           S = { builtin.lsp_workspace_symbols, "LSP Workspace Symbols" },
           ["C-s"] = { builtin.lsp_dynamic_workspace_symbols, "LSP Global Symbols" },

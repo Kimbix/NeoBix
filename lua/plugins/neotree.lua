@@ -13,8 +13,8 @@ return {
 				name = "NeoTree",
 
         -- Not much needed here tbh
-				e = { "<CMD>Neotree filesystem toggle left focus <CR>", "Toggle Neotree" },
-				E = { "<CMD>Neotree filesystem reveal left focus <CR>", "Focus Neotree" },
+				E = { "<CMD>Neotree filesystem toggle left focus <CR>", "Toggle Neotree" },
+				e = { "<CMD>Neotree filesystem reveal left focus <CR>", "Focus Neotree" },
 				g = { "<CMD>Neotree git_status reveal left focus <CR>", "Git Status Tree" },
 			},
 		}, {

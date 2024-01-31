@@ -7,7 +7,7 @@ return {
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
-      require("dapui").setup()
+			require("dapui").setup()
 
 			-- C/C++/Rust Configuration (GNU Debugger)
 			dap.adapters.gdb = {
@@ -16,7 +16,14 @@ return {
 				args = { "-i", "dap" },
 			}
 
-      -- C Configuration
+			-- Godot GDScript
+			dap.adapters.godot = {
+				type = "server",
+				host = "127.0.0.1",
+				port = 6006,
+			}
+
+			-- C Configuration
 			dap.configurations.c = {
 				{
 					name = "Launch",
@@ -26,6 +33,16 @@ return {
 						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 					end,
 					cwd = "${workspaceFolder}",
+				},
+			}
+
+			dap.configurations.gdscript = {
+				{
+					type = "godot",
+					request = "launch",
+					name = "Launch scene",
+					project = "${workspaceFolder}",
+					launch_scene = true,
 				},
 			}
 

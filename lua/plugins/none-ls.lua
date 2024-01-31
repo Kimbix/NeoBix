@@ -12,6 +12,9 @@ return {
         -- Python
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
+        -- GodotScript
+				null_ls.builtins.formatting.gdformat,
+				null_ls.builtins.diagnostics.gdlint,
 			},
 		})
 		vim.keymap.set("n", "<leader>lF", vim.lsp.buf.format, {})

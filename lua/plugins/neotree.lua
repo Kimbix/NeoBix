@@ -7,6 +7,23 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set("n", "<leader>ee", ":Neotree filesystem reveal left <CR>")
+		local wk = require("which-key")
+		wk.register({
+			e = {
+				name = "NeoTree",
+
+        -- Not much needed here tbh
+				e = { "<CMD>Neotree filesystem toggle left focus <CR>", "Toggle Neotree" },
+				E = { "<CMD>Neotree filesystem reveal left focus <CR>", "Focus Neotree" },
+				g = { "<CMD>Neotree git_status reveal left focus <CR>", "Git Status Tree" },
+			},
+		}, {
+			mode = "n",
+			prefix = "<leader>",
+			buffer = nil,
+			silent = true,
+			noremap = true,
+			nowait = false,
+		})
 	end,
 }

@@ -10,6 +10,9 @@ return {
 
         p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview Hunk" },
         P = { "<CMD>Gitsigns preview_hunk_inline<CR>", "Preview Hunk" },
+
+        b = { "<CMD>Gitsigns toggle_current_line_blame<CR>", "Toggle Current Line Blame" },
+
       },
     }, {
       prefix = "<leader>",

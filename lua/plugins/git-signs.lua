@@ -11,8 +11,8 @@ return {
         name = "Git",
 
         -- Navigation
-        n = { gs.next_hunk, "Go to Next Hunk" },
-        N = { gs.prev_hunk, "Go to Previous Hunk" },
+        j = { gs.next_hunk, "Go to Next Hunk" },
+        k = { gs.prev_hunk, "Go to Previous Hunk" },
         v = { gs.select_hunk, "Select Current Hunk" },
 
         -- Hunk Management

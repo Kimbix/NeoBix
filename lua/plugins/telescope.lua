@@ -18,21 +18,12 @@ return {
           o = { builtin.oldfiles, "Old Files" },
           g = { builtin.live_grep, "Grep String" },
           u = { "<CMD>Telescope undo<CR>", "Undo History" },
+          t = { "<CMD>TodoTelescope keywords=TODO,FIX<CR>", "TODO / FIX Comments" },
 
           -- NEOVIM
           ["?"] = { builtin.help_tags, "Help Search" },
           H = { builtin.command_history, "Command History" },
           [":"] = { builtin.commands, "Search Commands" },
-
-          -- LSP
-          d = { builtin.lsp_definitions, "LSP Definitions" },
-          t = { builtin.lsp_type_definitions, "LSP Type Definitions" },
-          s = { builtin.lsp_document_symbols, "LSP Document Symbols" },
-          S = { builtin.lsp_workspace_symbols, "LSP Workspace Symbols" },
-          ["C-s"] = { builtin.lsp_dynamic_workspace_symbols, "LSP Global Symbols" },
-          i = { builtin.lsp_implementations, "LSP Implementations" },
-          r = { builtin.lsp_references, "LSP References" },
-          D = { builtin.diagnostics, "LSP Errors" },
 
           -- Git
           c = { builtin.git_commits, "Git Commits" },

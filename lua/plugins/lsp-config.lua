@@ -40,6 +40,7 @@ return {
         capabilities = capabilities,
       })
       -- Keybindings
+      local builtin = require("telescope.builtin")
       local wk = require("which-key")
       wk.register({
         l = {
@@ -56,6 +57,15 @@ return {
             end,
             "List Workspace Folders",
           },
+
+          d = { builtin.lsp_definitions, "LSP Definitions" },
+          t = { builtin.lsp_type_definitions, "LSP Type Definitions" },
+          s = { builtin.lsp_document_symbols, "LSP Document Symbols" },
+          S = { builtin.lsp_workspace_symbols, "LSP Workspace Symbols" },
+          ["C-s"] = { builtin.lsp_dynamic_workspace_symbols, "LSP Global Symbols" },
+          i = { builtin.lsp_implementations, "LSP Implementations" },
+          r = { builtin.lsp_references, "LSP References" },
+          D = { builtin.diagnostics, "LSP Errors" },
         },
       }, {
         mode = "n",

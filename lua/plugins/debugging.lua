@@ -23,6 +23,12 @@ return {
 				port = 6006,
 			}
 
+			dap.adapters.coreclr = {
+				type = "executable",
+				command = "/usr/bin/netcoredbg",
+				args = { "--interpreter=vscode" },
+			}
+
 			-- C Configuration
 			dap.configurations.c = {
 				{
@@ -33,6 +39,17 @@ return {
 						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 					end,
 					cwd = "${workspaceFolder}",
+				},
+			}
+
+			dap.configurations.cs = {
+				{
+					type = "coreclr",
+					name = "launch - netcoredbg",
+					request = "launch",
+					program = function()
+						return vim.fn.input(vim.fn.getcwd() .. "/bin/Debug/", "file")
+					end,
 				},
 			}
 

@@ -4,6 +4,8 @@ return {
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
+        -- CSharp
+        null_ls.builtins.formatting.clang_format,
         -- General
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.eslint_d,
@@ -15,10 +17,15 @@ return {
         -- GodotScript
         null_ls.builtins.formatting.gdformat,
         null_ls.builtins.diagnostics.gdlint,
-        -- CSharp
-        null_ls.builtins.formatting.clang_format,
       },
     })
-    vim.keymap.set("n", "<leader>lF", vim.lsp.buf.format, {})
+    vim.keymap.set("n", "<leader>lF", function()
+      vim.lsp.buf.format({
+        filter = function(client)
+          if (client.name ~= "csharp_ls") then return false end
+          return true
+        end,
+      })
+    end, {})
   end,
 }

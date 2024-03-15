@@ -22,7 +22,7 @@ return {
     vim.keymap.set("n", "<leader>lF", function()
       vim.lsp.buf.format({
         filter = function(client)
-          if (client.name ~= "omnisharp") then return false end
+          if (client.name == "omnisharp") then return false end
           return true
         end,
       })

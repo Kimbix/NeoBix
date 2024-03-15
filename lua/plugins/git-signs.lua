@@ -1,10 +1,11 @@
 return {
   "lewis6991/gitsigns.nvim",
-  config = function()
-    require("gitsigns").setup()
-
+	name = "gitsigns.nvim",
+	lazy = true,
+  init = function()
     local gs = require("gitsigns")
     gs.toggle_numhl()
+
     local wk = require("which-key")
     wk.register({
       g = {

@@ -1,6 +1,6 @@
 return {
 	"catppuccin/nvim",
-	name = "catppuccin",
+	name = "Catppuccin",
 	priority = 1000,
 	config = function()
     vim.cmd("set termguicolors")

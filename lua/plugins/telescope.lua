@@ -1,57 +1,58 @@
 return {
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "debugloop/telescope-undo.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      local builtin = require("telescope.builtin")
-      local wk = require("which-key")
-      wk.register({
-        f = {
-          name = "Telescope",
-          -- FILES
-          f = { builtin.find_files, "Find Files" },
-          o = { builtin.oldfiles, "Old Files" },
-          g = { builtin.live_grep, "Grep String" },
-          u = { "<CMD>Telescope undo<CR>", "Undo History" },
-          t = { "<CMD>TodoTelescope keywords=TODO,FIX<CR>", "TODO / FIX Comments" },
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"debugloop/telescope-ui-select.nvim",
+		},
 
-          -- NEOVIM
-          ["?"] = { builtin.help_tags, "Help Search" },
-          H = { builtin.command_history, "Command History" },
-          [":"] = { builtin.commands, "Search Commands" },
+		lazy = true,
+		cmd = { "Telescope" },
+		keys = {
+			-- FILES
+			{ "<leader>ff", "<CMD>Telescope find_files<CR>",      mode = { "n", "x" }, desc = "Find files" },
+			{ "<leader>fo", "<CMD>Telescope oldfiles<CR>",        mode = { "n", "x" }, desc = "Old files" },
+			{ "<leader>fg", "<CMD>Telescope live_grep<CR>",       mode = { "n", "x" }, desc = "Live grep" },
 
-          -- Git
-          c = { builtin.git_commits, "Git Commits" },
-          C = { builtin.git_bcommits, "Git Commits for Current Buffer" },
-          b = { builtin.git_branches, "Git Branches" },
-          G = { builtin.git_status, "Git Status" },
-        },
-      }, {
-        prefix = "<leader>",
-        buffer = nil,
-        silent = true,
-        noremap = true,
-        nowait = false,
-      })
-    end,
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").setup()
-      require("telescope").load_extension("ui-select")
-    end,
-  },
-  {
-    "debugloop/telescope-undo.nvim",
-    config = function()
-      require("telescope").setup()
-      require("telescope").load_extension("undo")
-    end,
-  },
+			-- NEOVIM
+			{ "<leader>f?", "<CMD>Telescope help_tags<CR>",       mode = { "n", "x" }, desc = "Help search" },
+			{ "<leader>fH", "<CMD>Telescope command_history<CR>", mode = { "n", "x" }, desc = "Command history" },
+			{ "<leader>f:", "<CMD>Telescope commands<CR>",        mode = { "n", "x" }, desc = "Search commands" },
+
+			-- Git
+			{ "<leader>fc", "<CMD>Telescope git_commits<CR>",     mode = { "n", "x" }, desc = "Git commits" },
+			{ "<leader>fC", "<CMD>Telescope git_bcommits<CR>",    mode = { "n", "x" }, desc = "Git commits for current buffer" },
+			{ "<leader>fb", "<CMD>Telescope git_branches<CR>",    mode = { "n", "x" }, desc = "Git branches" },
+			{ "<leader>fG", "<CMD>Telescope git_status<CR>",      mode = { "n", "x" }, desc = "Git branches" },
+		},
+
+		init = function()
+			require("which-key").register({
+				f = { name = "Telescope", },
+			}, { prefix = "<leader>", buffer = nil, })
+		end,
+	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
+
+		lazy = true,
+
+		config = function()
+			require("telescope").load_extension("ui-select")
+		end,
+	},
+	{
+		"debugloop/telescope-undo.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", },
+
+		lazy = true,
+		keys = {
+			{ "<leader>fu", "<CMD>Telescope undo<CR>", mode = { "n", "x" }, desc = "Undo history" },
+		},
+
+		config = function()
+			require("telescope").load_extension("undo")
+		end,
+	},
 }

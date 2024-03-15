@@ -2,6 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
 	name = "gitsigns.nvim",
 	lazy = true,
+	event = { "BufReadPre", "BufNewFile" },
 	keys = {
 		-- Movement
 		{ "<leader>gj", ":lua require('gitsigns').next_hunk()<cr>", mode = { "n" }, desc = "Go to Next Hunk" },
@@ -24,11 +25,12 @@ return {
 		-- Viewing 
 		{ "<leader>gh", ":lua require('gitsigns').toggle_linehl()<cr>", mode = { "n" }, desc = "Toggle Line Hightlight" },
 		{ "<leader>gd", ":lua require('gitsigns').toggle_deleted()<cr>", mode = { "n" }, desc = "Toggle Deleted Hunks" },
+		{ "<leader>gc", "<leader>gh<leader>gd", mode = { "n" }, desc = "Toggle Pretty Changes", remap = true },
 		{ "<leader>gw", ":lua require('gitsigns').toggle_word_diff()<cr>", mode = { "n" }, desc = "Toggle Word Diff" },
 		{ "<leader>gB", ":lua require('gitsigns').toggle_current_line_blame()<cr>", mode = { "n" }, desc = "Toggle Word Diff" },
 
 		-- Diff
-		{ "<leader>gD", ":lua require('gitsigns').diffthis()<cr>", mode = { "n" }, desc = "Diff File" },
+		{ "<space>gD", ":lua require('gitsigns').diffthis()<cr>", mode = { "n" }, desc = "Diff File" },
 
 		-- Blame
 		{ "<leader>gb", ":lua require('gitsigns').blame_line({ full = true })<cr>", mode = { "n" }, desc = "Get Blame for Hunk" },
@@ -44,5 +46,6 @@ return {
     local gs = require("gitsigns")
 		gs.setup()
     gs.toggle_numhl()
+		gs.toggle_current_line_blame()
   end,
 }

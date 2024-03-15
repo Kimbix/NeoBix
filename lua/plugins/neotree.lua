@@ -6,25 +6,32 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
-	config = function()
-		local wk = require("which-key")
-		wk.register({
-			e = {
-				name = "NeoTree",
 
-				-- Not much needed here tbh
-				E = { "<CMD>Neotree filesystem toggle float focus <CR>", "Toggle Neotree" },
-				b = { "<CMD>Neotree buffers toggle float focus<CR>", "Toggle Active Buffers" },
-				e = { "<CMD>Neotree filesystem reveal float focus <CR>", "Focus Neotree" },
-				g = { "<CMD>Neotree git_status reveal float focus <CR>", "Git Status Tree" },
-			},
-		}, {
-			mode = "n",
-			prefix = "<leader>",
-			buffer = nil,
-			silent = true,
-			noremap = true,
-			nowait = false,
-		})
+	lazy = true,
+	keys = {
+		{
+			"<leader>ee",
+			"<CMD>Neotree filesystem toggle float focus<CR>",
+			mode = { "n", "x" },
+			desc = "Toggle Files Neotree",
+		},
+		{
+			"<leader>eb",
+			"<CMD>Neotree buffers toggle float focus<CR>",
+			mode = { "n", "x" },
+			desc = "Toggle Buffers Neotree",
+		},
+		{
+			"<leader>eg",
+			"<CMD>Neotree git_status toggle float focus<CR>",
+			mode = { "n", "x" },
+			desc = "Toggle Git Status Neotree",
+		},
+	},
+
+	init = function()
+		require("which-key").register({
+			e = { name = "NeoTree" },
+		}, { mode = { "n", "x" }, prefix = "<leader>" })
 	end,
 }

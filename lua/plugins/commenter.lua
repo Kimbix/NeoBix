@@ -2,8 +2,8 @@ return {
 	"numToStr/Comment.nvim",
 	lazy = true,
 	keys = {
-		{ "<leader>cc", ":lua require('Comment.api').toggle.linewise.current", mode = { "n" }, desc = "Toggle current line as comment" },
-		{ "<leader>cC", ":lua require('Comment.api').toggle.blockwise.current", mode = { "n"}, desc = "Toggle current line as comment block" },
+		{ "<leader>cc", ":lua require('Comment.api').toggle.linewise.current()<CR>", mode = { "n" }, desc = "Toggle current line as comment" },
+		{ "<leader>cC", ":lua require('Comment.api').toggle.blockwise.current()<CR>", mode = { "n"}, desc = "Toggle current line as comment block" },
 		{ "<leader>cc", "<Plug>(comment_toggle_linewise_visual)", mode = { "v" }, desc = "Toggle current line as comment" },
 		{ "<leader>cC", "<Plug>(comment_toggle_blockwise_visual)", mode = { "v"}, desc = "Toggle current line as comment block" },
 	},

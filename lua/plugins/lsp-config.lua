@@ -13,7 +13,13 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "clangd", "omnisharp", "tsserver" },
+				ensure_installed = {
+					"lua_ls",       -- For Lua
+					"clangd",		    -- For C and C++
+					"omnisharp",    -- For C#
+					"tsserver",     -- For TypeScript
+					"rust_analyzer" -- Rust Analyzer
+				},
 			})
 		end,
 	},
@@ -23,6 +29,7 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
@@ -33,7 +40,8 @@ return {
 				capabilities = capabilities,
 			})
 
-			local pid = vim.fn.getpid()
+			require("lsp-config.rust-analyzer")
+
 			require("lspconfig").omnisharp.setup({
 				cmd = { "omnisharp" },
 
@@ -77,7 +85,7 @@ return {
 				capabilities = capabilities,
 			})
 			-- Keybindings
-			local builtin = require("telescope.builtin")
+			-- local builtin = require("telescope.builtin")
 			local wk = require("which-key")
 			wk.register({
 				l = {
@@ -95,14 +103,14 @@ return {
 						"List Workspace Folders",
 					},
 
-					d = { builtin.lsp_definitions, "LSP Definitions" },
-					t = { builtin.lsp_type_definitions, "LSP Type Definitions" },
-					s = { builtin.lsp_document_symbols, "LSP Document Symbols" },
-					S = { builtin.lsp_workspace_symbols, "LSP Workspace Symbols" },
-					["C-s"] = { builtin.lsp_dynamic_workspace_symbols, "LSP Global Symbols" },
-					i = { builtin.lsp_implementations, "LSP Implementations" },
-					r = { builtin.lsp_references, "LSP References" },
-					D = { builtin.diagnostics, "LSP Errors" },
+					-- d = { builtin.lsp_definitions, "LSP Definitions" },
+					-- t = { builtin.lsp_type_definitions, "LSP Type Definitions" },
+					-- s = { builtin.lsp_document_symbols, "LSP Document Symbols" },
+					-- S = { builtin.lsp_workspace_symbols, "LSP Workspace Symbols" },
+					-- ["C-s"] = { builtin.lsp_dynamic_workspace_symbols, "LSP Global Symbols" },
+					-- i = { builtin.lsp_implementations, "LSP Implementations" },
+					-- r = { builtin.lsp_references, "LSP References" },
+					-- D = { builtin.diagnostics, "LSP Errors" },
 				},
 			}, {
 				mode = "n",

@@ -8,5 +8,12 @@ return {
 		{ "<leader>tT", "<CMD>Trouble document_diagnostics<CR>", mode = { "n" }, desc = "Open window with document diagnostics" },
 		{ "<leader>tq", "<CMD>Trouble quickfix<CR>", mode = { "n" }, desc = "Open window with quickfix options" },
 	},
+
+	init = function()
+		require("which-key").register({
+			t = { name = "Trouble", },
+		}, { mode = "n", prefix = "<leader>", })
+	end,
+
 	opts = { }
 }

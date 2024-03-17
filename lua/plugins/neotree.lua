@@ -11,19 +11,19 @@ return {
 	keys = {
 		{
 			"<leader>ee",
-			"<CMD>Neotree filesystem toggle float focus<CR>",
+			"<CMD>Neotree filesystem toggle focus<CR>",
 			mode = { "n", "x" },
 			desc = "Toggle Files Neotree",
 		},
 		{
 			"<leader>eb",
-			"<CMD>Neotree buffers toggle float focus<CR>",
+			"<CMD>Neotree buffers toggle focus<CR>",
 			mode = { "n", "x" },
 			desc = "Toggle Buffers Neotree",
 		},
 		{
 			"<leader>eg",
-			"<CMD>Neotree git_status toggle float focus<CR>",
+			"<CMD>Neotree git_status toggle focus<CR>",
 			mode = { "n", "x" },
 			desc = "Toggle Git Status Neotree",
 		},
@@ -34,4 +34,10 @@ return {
 			e = { name = "NeoTree" },
 		}, { mode = { "n", "x" }, prefix = "<leader>" })
 	end,
+
+	opts = {
+		window = {
+			position = "float",
+		}
+	}
 }

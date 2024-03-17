@@ -4,13 +4,18 @@ return {
 	-- For managing the lsps
 	{
 		"williamboman/mason.nvim",
+		lazy = true,
+		cmd  = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
 		config = function()
 			require("mason").setup()
 		end,
 	},
+
 	-- For comunicating between lsp and mason
 	{
 		"williamboman/mason-lspconfig.nvim",
+		lazy = true,
+
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -23,9 +28,15 @@ return {
 			})
 		end,
 	},
+
 	-- Adds LSP functionality and keybinds to neovim
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = { "williamboman/mason-lspconfig.nvim" },
+
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
+
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
@@ -36,10 +47,8 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.tsserver.setup({
-				capabilities = capabilities,
-			})
 
+			require("lsp-config.tsserver")
 			require("lsp-config.rust-analyzer")
 
 			require("lspconfig").omnisharp.setup({
@@ -84,8 +93,9 @@ return {
 			lspconfig.gdscript.setup({
 				capabilities = capabilities,
 			})
+
 			-- Keybindings
-			-- local builtin = require("telescope.builtin")
+			local builtin = require("telescope.builtin")
 			local wk = require("which-key")
 			wk.register({
 				l = {
@@ -103,14 +113,14 @@ return {
 						"List Workspace Folders",
 					},
 
-					-- d = { builtin.lsp_definitions, "LSP Definitions" },
-					-- t = { builtin.lsp_type_definitions, "LSP Type Definitions" },
-					-- s = { builtin.lsp_document_symbols, "LSP Document Symbols" },
-					-- S = { builtin.lsp_workspace_symbols, "LSP Workspace Symbols" },
-					-- ["C-s"] = { builtin.lsp_dynamic_workspace_symbols, "LSP Global Symbols" },
-					-- i = { builtin.lsp_implementations, "LSP Implementations" },
-					-- r = { builtin.lsp_references, "LSP References" },
-					-- D = { builtin.diagnostics, "LSP Errors" },
+					d = { builtin.lsp_definitions, "LSP Definitions" },
+					t = { builtin.lsp_type_definitions, "LSP Type Definitions" },
+					s = { builtin.lsp_document_symbols, "LSP Document Symbols" },
+					S = { builtin.lsp_workspace_symbols, "LSP Workspace Symbols" },
+					["C-s"] = { builtin.lsp_dynamic_workspace_symbols, "LSP Global Symbols" },
+					i = { builtin.lsp_implementations, "LSP Implementations" },
+					r = { builtin.lsp_references, "LSP References" },
+					D = { builtin.diagnostics, "LSP Errors" },
 				},
 			}, {
 				mode = "n",

@@ -3,5 +3,8 @@ return {
 	lazy = true,
 	event = "InsertEnter",
 
-	opts = {}
+	opts = {
+		fast_wrap = {},
+		disable_filetype = { "TelescopePrompt", "vim", "neo-tree", "neo-tree-popup" },
+	}
 }

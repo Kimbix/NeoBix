@@ -42,12 +42,12 @@ return {
 			{ "<leader>la",     "<CMD>lua vim.lsp.buf.code_action()<CR>", mode = { "n", "x" }, desc = "Code actions" },
 			{ "<leader>lR",     "<CMD>lua vim.lsp.buf.rename()<CR>",      mode = { "n", "x" }, desc = "Rename symbol" },
 			{ "<leader>ld",     "<CMD>Telescope lsp_definitions<CR>",     mode = { "n", "x" }, desc = "LSP definitions" },
-			{ "<leader>lt",     "<CMD>Telescope lsp_type_definitions",    mode = { "n", "x" }, desc = "LSP type definitions" },
-			{ "<leader>ls",     "<CMD>Telescope lsp_document_symbols",    mode = { "n", "x" }, desc = "LSP document symbols" },
-			{ "<leader>lS",     "<CMD>Telescope lsp_workspace_symbols",   mode = { "n", "x" }, desc = "LSP workspace symbols" },
-			{ "<leader>l<C-s>", "<CMD>Telescope lsp_global_symbols",      mode = { "n", "x" }, desc = "LSP global symbols" },
-			{ "<leader>li",     "<CMD>Telescope lsp_implementations",     mode = { "n", "x" }, desc = "LSP implementations" },
-			{ "<leader>lr",     "<CMD>Telescope lsp_references",          mode = { "n", "x" }, desc = "LSP references" },
+			{ "<leader>lt",     "<CMD>Telescope lsp_type_definitions<CR>",    mode = { "n", "x" }, desc = "LSP type definitions" },
+			{ "<leader>ls",     "<CMD>Telescope lsp_document_symbols<CR>",    mode = { "n", "x" }, desc = "LSP document symbols" },
+			{ "<leader>lS",     "<CMD>Telescope lsp_workspace_symbols<CR>",   mode = { "n", "x" }, desc = "LSP workspace symbols" },
+			{ "<leader>l<C-s>", "<CMD>Telescope lsp_global_symbols<CR>",      mode = { "n", "x" }, desc = "LSP global symbols" },
+			{ "<leader>li",     "<CMD>Telescope lsp_implementations<CR>",     mode = { "n", "x" }, desc = "LSP implementations" },
+			{ "<leader>lr",     "<CMD>Telescope lsp_references<CR>",          mode = { "n", "x" }, desc = "LSP references" },
 		},
 
 		-- TODO: Might add

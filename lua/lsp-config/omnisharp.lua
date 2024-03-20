@@ -8,3 +8,5 @@ lspconfig.omnisharp.setup({
 	root_dir = util.root_pattern("*.sln", "*.csproj", "omnisharp.json", "function.json"),
 	cmd = { "omnisharp", "-lsp" },
 })
+
+-- My omnisharp.json preferred configuration is in this same directory, called omnisharp.lua, move this to the root of the desired directory when creating a new project

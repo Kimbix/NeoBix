@@ -14,6 +14,7 @@ return {
 			{ "<leader>ff", "<CMD>Telescope find_files<CR>",      mode = { "n", "x" }, desc = "Find files" },
 			{ "<leader>fo", "<CMD>Telescope oldfiles<CR>",        mode = { "n", "x" }, desc = "Old files" },
 			{ "<leader>fg", "<CMD>Telescope live_grep<CR>",       mode = { "n", "x" }, desc = "Live grep" },
+			{ "<leader>f/", "<CMD>Telescope grep_string<CR>",       mode = { "n", "x" }, desc = "Grep string" },
 
 			-- NEOVIM
 			{ "<leader>f?", "<CMD>Telescope help_tags<CR>",       mode = { "n", "x" }, desc = "Help search" },

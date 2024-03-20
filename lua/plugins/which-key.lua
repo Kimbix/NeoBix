@@ -22,7 +22,7 @@ return {
         j = { "<CMD>wincmd j<CR>", "Move to Lower Split" },
         h = { "<CMD>wincmd h<CR>", "Move to Left Split" },
 
-        ["`"] = { "<CMD>bot split term://bash<CR> i", "Open terminal on bottom" },
+        ["`"] = { "<CMD>bot split term://zsh<CR> i", "Open terminal on bottom" },
 
       },
     }, {

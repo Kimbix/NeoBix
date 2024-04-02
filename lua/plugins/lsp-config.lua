@@ -23,7 +23,8 @@ return {
 					"clangd",  -- For C and C++
 					"omnisharp", -- For C#
 					"tsserver", -- For TypeScript
-					"rust_analyzer" -- Rust Analyzer
+					"rust_analyzer", -- Rust Analyzer
+					"jdtls" -- I LOVE JAVA
 				},
 			})
 		end,
@@ -70,6 +71,8 @@ return {
 		end,
 
 		config = function()
+			require('lspconfig').jdtls.setup({})
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
@@ -79,6 +82,8 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
+
+			lspconfig.jdtls.setup({ })
 
 			require("lsp-config.tsserver")
 			require("lsp-config.rust-analyzer")

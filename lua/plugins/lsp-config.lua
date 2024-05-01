@@ -82,6 +82,9 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.svelte.setup({
+				capabilities = capabilities,
+			})
 
 			lspconfig.jdtls.setup({ })
 

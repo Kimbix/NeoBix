@@ -1,7 +1,7 @@
 -- Everything related to language servers
 
 return {
-	-- For managing the lsps
+	-- For managing the lspslspconfig
 	{
 		"williamboman/mason.nvim",
 		lazy   = true,
@@ -71,30 +71,19 @@ return {
 		end,
 
 		config = function()
-			require('lspconfig').jdtls.setup({})
-
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.svelte.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.jdtls.setup({ })
-
+			require("lsp-config.clangd")
+			require("lsp-config.lua-lsp")
+			require("lsp-config.eslint-lsp")
 			require("lsp-config.tsserver")
 			require("lsp-config.rust-analyzer")
 			require("lsp-config.omnisharp")
-
-			lspconfig.gdscript.setup({
-				capabilities = capabilities,
-			})
+			require("lsp-config.svelte")
+			require("lsp-config.cssls")
+			require("lsp-config.nil-ls")
+			require("lsp-config.gdscript")
 		end,
 	},
 }

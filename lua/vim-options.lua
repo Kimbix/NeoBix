@@ -1,5 +1,13 @@
 -- Keyboard
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Mouse
+vim.opt.mouse = 'a'
+
+-- Tools
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Tabs
 vim.cmd("set noexpandtab")
@@ -7,10 +15,43 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
--- Visuals of file
-vim.cmd("set number")
-vim.cmd("set wrap")
+-- [[ Visuals ]] --
+-- Sidebar options
+vim.opt.number = true
+vim.opt.relativenumber = false
+vim.opt.signcolumn = 'yes'
 
--- Files and System
-vim.cmd("set undofile")
-vim.cmd("set clipboard=unnamedplus")
+-- Lines wrap
+vim.opt.wrap = true
+vim.opt.breakindent = true
+
+-- Status line options
+vim.opt.showmode = false
+vim.opt.cursorline = true
+
+-- In-File options
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- TODO: If you ever find out how to show the substitutions to the right
+-- instead of up... poggers
+vim.opt.inccommand = 'split'
+
+-- File Visibility
+vim.opt.scrolloff = 8
+
+-- Search options
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<CMD>nohlsearch<CR>') -- THIS IS AWESOME
+
+-- [[ Splits ]] --
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- [[ Files and System ]] --
+vim.opt.undofile = true
+vim.opt.clipboard = 'unnamedplus'
+
+-- Vim itself
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300

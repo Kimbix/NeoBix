@@ -27,7 +27,8 @@ vim.opt.breakindent = true
 
 -- Status line options
 vim.opt.showmode = false
-vim.opt.cursorline = true
+vim.opt.cursorline = false
+vim.opt.cmdheight = 0 -- Hides Command Line
 
 -- In-File options
 vim.opt.list = true

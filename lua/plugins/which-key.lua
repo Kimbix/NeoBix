@@ -23,7 +23,6 @@ return {
         h = { "<CMD>wincmd h<CR>", "Move to Left Split" },
 
         ["`"] = { "<CMD>bot split term://zsh<CR> i", "Open terminal on bottom" },
-
       },
     }, {
       mode = "n",
@@ -31,7 +30,14 @@ return {
       buffer = nil,
       silent = true,
       noremap = true,
-      nowait = false,
     })
+
+    wk.register({
+      ["<Esc>"] = { "<CMD>bd!<CR>", "Exit terminal mode" },
+    }, {
+      mode = "t",
+      prefix = "<Esc>",
+    })
+
   end,
 }

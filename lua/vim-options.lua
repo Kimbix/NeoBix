@@ -1,6 +1,7 @@
 -- Keyboard
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.have_nerd_font = true
 
 -- Mouse
 vim.opt.mouse = 'a'
@@ -9,16 +10,16 @@ vim.opt.mouse = 'a'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Tabs
-vim.cmd("set noexpandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+-- [[ Tabs ]] --
+vim.opt.expandtab = false
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 -- [[ Visuals ]] --
 -- Sidebar options
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
 
 -- Lines wrap

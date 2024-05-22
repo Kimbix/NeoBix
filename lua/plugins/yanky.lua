@@ -1,6 +1,6 @@
 return {
 	"gbprod/yanky.nvim",
-	lazy = true,
+	lazy = false,
 	keys = {
 		"y",
 		{ "p",  "<Plug>(YankyPutAfter)",   mode = { "n", "x" }, desc = "Put after cursor" },
@@ -23,7 +23,7 @@ return {
 				timer = 200,
 			},
 			ring = {
-				history_length = 30,
+				history_length = 100,
 			},
 		})
 

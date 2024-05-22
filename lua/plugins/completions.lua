@@ -34,12 +34,12 @@ return {
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-l>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
 					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<C-k>"] = cmp.mapping.select_prev_item(),
+					["<C-l>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 					["<C-h>"] = cmp.mapping.abort(),
 					["<C-Space>"] = cmp.mapping.complete(),
-
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
@@ -52,3 +52,4 @@ return {
 		end,
 	},
 }
+

@@ -6,9 +6,9 @@ return {
 		"williamboman/mason.nvim",
 		lazy   = true,
 		cmd    = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-		config = function()
-			require("mason").setup()
-		end,
+		opts = {
+
+		}
 	},
 
 	-- For comunicating between lsp and mason
@@ -24,7 +24,6 @@ return {
 					"omnisharp", -- For C#
 					"tsserver", -- For TypeScript
 					"rust_analyzer", -- Rust Analyzer
-					"jdtls" -- I LOVE JAVA
 				},
 			})
 		end,

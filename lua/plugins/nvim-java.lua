@@ -20,9 +20,9 @@ return {
 		}
 	},
 	init = function()
-		require('java').setup()
+		-- require('java').setup()
 	end,
 	config = function()
-		require('lspconfig').jdtls.setup({})
+		-- require('lspconfig').jdtls.setup({})
 	end
 }

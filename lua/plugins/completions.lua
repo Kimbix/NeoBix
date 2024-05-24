@@ -1,7 +1,5 @@
 return {
-	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
+	{ "hrsh7th/cmp-nvim-lsp", },
 
 	{
 		"L3MON4D3/LuaSnip",
@@ -37,7 +35,9 @@ return {
 
 					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<C-k>"] = cmp.mapping.select_prev_item(),
+					["<C-S-K>"] = cmp.mapping.open_docs(),
 					["<C-l>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
 					["<C-h>"] = cmp.mapping.abort(),
 					["<C-Space>"] = cmp.mapping.complete(),
 				}),

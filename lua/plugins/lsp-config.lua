@@ -68,6 +68,7 @@ return {
 			require("lsp-config.nil-ls")
 			require("lsp-config.gdscript")
 			require("lsp-config.java-language-server")
+			lspconfig.gopls.setup({})
 		end,
 	}
 }
